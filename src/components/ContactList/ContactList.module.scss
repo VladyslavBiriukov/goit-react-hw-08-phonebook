@@ -1,0 +1,46 @@
+.list {
+position: relative;
+padding-left: 50px;
+}
+
+.item {
+    width: 500px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 17px;
+    
+        &:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+}
+
+.text {
+display: inline-block;
+    min-width: 300px;
+}
+
+.sorry {
+    text-align: center;
+    display: inline-block;
+    min-width: 300px;
+}
+
+.button {
+    width: 70px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        margin-left: 10px;
+        border: 1px solid #c4c4c4;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: transparent;
+        transition: background-color 0.5s ease;
+    
+        &:hover,
+        &:focus {
+            background-color: #c4c4c4;
+        }
+
+}
