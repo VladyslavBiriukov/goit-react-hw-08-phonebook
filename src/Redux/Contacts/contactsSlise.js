@@ -15,13 +15,13 @@ const handlePending = state => {
   state.error = null;
 };
 
-const handleRejected = (state, action) => {
+const handleRejected = (state, { payload }) => {
   state.isLoading = false;
-  state.error = action.payload;
+  state.error = payload;
 
   toast.error(
-    `${action.payload}` === 'Network Error'
-      ? `${action.payload}`
+    `${payload}` === 'Network Error'
+      ? `${payload}`
       : 'Something went wrong.Check your data and try again'
   );
 };
@@ -37,17 +37,17 @@ const contactSlise = createSlice({
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.pending, handlePending)
-      .addCase(fetchContacts.fulfilled, (state, action) => {
+      .addCase(fetchContacts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.error = null;
-        state.items = action.payload;
+        state.items = payload;
       })
       .addCase(fetchContacts.rejected, handleRejected)
 
       .addCase(deleteContact.pending, handlePending)
-      .addCase(deleteContact.fulfilled, (state, action) => {
+      .addCase(deleteContact.fulfilled, (state, { payload }) => {
         const index = state.items.findIndex(
-          task => task.id === action.payload.id
+          task => task.id === payload.id
         );
         state.items.splice(index, 1);
         state.isLoading = false;
@@ -56,20 +56,20 @@ const contactSlise = createSlice({
       .addCase(deleteContact.rejected, handleRejected)
 
       .addCase(addContact.pending, handlePending)
-      .addCase(addContact.fulfilled, (state, action) => {
-        state.items.unshift(action.payload);
+      .addCase(addContact.fulfilled, (state, { payload }) => {
+        state.items.unshift(payload);
         state.isLoading = false;
         state.error = null;
       })
       .addCase(addContact.rejected, handleRejected)
 
       .addCase(redactContatc.pending, handlePending)
-      .addCase(redactContatc.fulfilled, (state, action) => {
+      .addCase(redactContatc.fulfilled, (state, { payload }) => {
         const index = state.items.findIndex(
-          task => task.id === action.payload.id
+          task => task.id === payload.id
         );
         state.items.splice(index, 1);
-        state.items.unshift(action.payload);
+        state.items.unshift(payload);
         state.isLoading = false;
         state.error = null;
       })

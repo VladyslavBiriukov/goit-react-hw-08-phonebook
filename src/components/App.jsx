@@ -3,10 +3,10 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, lazy } from 'react';
-import { refreshUser } from 'Redux/Authorization/operations'; // для обновления токена
-import { PrivateRoute } from './PrivateRoute'; // для захисту роутів
-import { RestrictedRoute } from './RestrictedRoute'; // для захисту роутів
-import { ToastContainer } from 'react-toastify'; // для вспливаючих повідомлень
+import { refreshUser } from 'Redux/Authorization/operations'; 
+import { PrivateRoute } from './PrivateRoute'; 
+import { RestrictedRoute } from './RestrictedRoute'; 
+import { ToastContainer } from 'react-toastify'; 
 import { Spiner } from 'pages/ContactList/ContactList.styled';
 
 const Register = lazy(() => import('../pages/Register/Register'));
@@ -55,10 +55,8 @@ export const App = () => {
                 </Route>
             </Routes>
 
-            {/* для вспливаючих повідомлень */}
             <ToastContainer autoClose={1000} />
 
-            {/* для глобальних стилів */}
             <GlobalStyle />
         </>
     ) : (

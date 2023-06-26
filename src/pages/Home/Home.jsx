@@ -8,14 +8,14 @@ import {
   HomeEdit,
   HomePhoneIcon,
   HomeContactList,
-} from './Home.styled'; // для стилів
+} from './Home.styled'; 
 
 import {ContainerOutlined} from '@ant-design/icons';
 
 import { useSelector } from 'react-redux';
 
 export default function Home() {
-  const { isLoaggedIn } = useSelector(state => state.auth); // для перевірки чи залогінений користувач
+  const { isLoaggedIn } = useSelector(state => state.auth); 
 
   return (
     <Section>
@@ -28,7 +28,6 @@ export default function Home() {
         <HomeContactList />
       </Wrap>
 
-      {/* якщо користувач не залогінений, то виводимо підказку, якщо залогінений, також виводимо підказку */}
       {!isLoaggedIn ? (
         <UnderTitle>
           Please
@@ -39,7 +38,7 @@ export default function Home() {
         </UnderTitle>
       ) : (
         <UnderTitle>
-          Go to the tab
+          Сlick on
           <HomeLink to="/contacts">Contacts</HomeLink>
           and manage your contacts
         </UnderTitle>

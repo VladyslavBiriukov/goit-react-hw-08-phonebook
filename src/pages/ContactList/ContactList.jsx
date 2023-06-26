@@ -12,7 +12,7 @@ import {
   Spiner,
   Title,
   Container,
-} from './ContactList.styled'; // для стилів
+} from './ContactList.styled'; 
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -20,13 +20,13 @@ import {
   deleteContact,
   redactContatc,
   fetchContacts,
-} from 'Redux/Contacts/operations'; // для операцій
+} from 'Redux/Contacts/operations'; 
 
 import { useEffect, useState } from 'react';
 import { Filter } from 'components/Filter/Filter';
 import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Button, Popconfirm } from 'antd'; // для кнопки видалення
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons'; // для іконок
+import { Button, Popconfirm } from 'antd'; 
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons'; 
 
 export default function Contactlist() {
   const [subName, setSubName] = useState(''); // для редагування контакту
@@ -36,8 +36,8 @@ export default function Contactlist() {
   const dispatch = useDispatch();
 
   const handleOk = () => {
-    setIsModalOpen(false); // закриваємо модалку
-    dispatch(redactContatc({ id: subId, name: subName, number: subNumber })); // редагуємо контакт
+    setIsModalOpen(false); 
+    dispatch(redactContatc({ id: subId, name: subName, number: subNumber })); 
   };
 
   const showModal = (name, number, id) => {
@@ -48,18 +48,17 @@ export default function Contactlist() {
   };
 
   const handleCancel = () => {
-    setIsModalOpen(false); // закриваємо модалку
+    setIsModalOpen(false); 
   };
 
   useEffect(() => {
-    dispatch(fetchContacts()); // для отримання контактів з бекенду
+    dispatch(fetchContacts()); 
   }, [dispatch]);
 
   const { isLoading } = useSelector(state => state.contacts);
   const contacts = useSelector(state => state.contacts.items);
-  const filterData = useSelector(state => state.filter).toLowerCase(); // для фільтрації
+  const filterData = useSelector(state => state.filter).toLowerCase(); 
 
-  // фільтруємо контакти по введеному значенню
   const visibleContacts = contacts.filter(subscriber =>
     subscriber.name.toLowerCase().includes(filterData)
   );
@@ -69,7 +68,6 @@ export default function Contactlist() {
             <Container>
                 <div>
                     {' '}
-                    {/* якщо контактів немає, то виводимо заголовок, якщо є, то виводимо фільтр */}
                     {contacts.length < 1 ? (
                         <Title>Add your first contact</Title>
                     ) : (
@@ -79,16 +77,13 @@ export default function Contactlist() {
                     {isLoading && <Spiner />}
                 </div>
                 <List>
-                    {/* виводимо контакти на екран і додаємо кнопки для видалення і редагування */}
                     {visibleContacts.map(({ id, name, number }) => (
                         <Item key={id}>
-                            {/* для іконки */}
                             <DivName>
                                 <UserIconList />
                                 {name}:
                             </DivName>
                             <PhoneiconList /> {number}
-                            {/* для кнопок */}
                             <ButtonRedact
                                 onClick={() => showModal(name, number, id)}
                                 title="Edit contatc"
@@ -117,7 +112,7 @@ export default function Contactlist() {
                     >
                         <InputForm
                             prefix={<UserIcon />}
-                            value={subName} // для редагування контакту
+                            value={subName} 
                             onChange={e => {
                                 setSubName(e.target.value);
                             }}

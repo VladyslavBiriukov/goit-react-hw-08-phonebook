@@ -21,15 +21,14 @@ export default function Register() {
   const dispatch = useDispatch();
   const { isLoading, error } = useSelector(state => state.auth);
 
-  const onFinish = values => {
-    const { name, email, password, confirm } = values;
+    const onFinish = values => {
+        const { name, email, password, confirm } = values;
 
-    // перевірка на співпадіння паролів перед відправкою на сервер
-    if (password === confirm) {
-      dispatch(register({ name, email, password })); // для відправки даних на сервер
-      !isLoading && !error && form.resetFields(); // для очищення форми
-    }
-  };
+        if (password === confirm) {
+            dispatch(register({ name, email, password }));
+            !isLoading && !error && form.resetFields();
+        }
+    };
 
     return (
         <section>
@@ -39,7 +38,7 @@ export default function Register() {
                     name="register"
                     onFinish={onFinish}
                     initialValues={{
-                        residence: ['zhejiang', 'hangzhou', 'xihu'], // початкові значення для селекта
+                        residence: ['zhejiang', 'hangzhou', 'xihu'], 
                         prefix: '86',
                     }}
                     scrollToFirstError
@@ -103,7 +102,6 @@ export default function Register() {
                                 message: 'Please confirm your password!',
                             },
 
-                            // перевірка на співпадіння паролів перед відправкою на сервер
                             ({ getFieldValue }) => ({
                                 validator(_, value) {
                                     if (!value || getFieldValue('password') === value) {

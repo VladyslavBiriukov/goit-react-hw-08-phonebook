@@ -18,8 +18,8 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const onFinish = values => {
-    dispatch(loginization(values)); // для відправки даних на сервер
-    form.resetFields(); // для очищення форми
+    dispatch(loginization(values)); 
+    form.resetFields(); 
   };
 
   return (
