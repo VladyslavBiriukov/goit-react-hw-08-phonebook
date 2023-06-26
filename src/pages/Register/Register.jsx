@@ -13,7 +13,7 @@ import {
   TitleReg,
 } from './Register.styled';
 
-import { register } from 'Redux/Authorization/operations';
+import { register } from 'components/redux/Redux/Authorization/operations';
 import { useDispatch, useSelector } from 'react-redux';
 
 export default function Register() {

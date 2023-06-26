@@ -1,6 +1,6 @@
 import { WrapperFiler, FilterInput, FilterP } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
-import { filtration } from 'Redux/Contacts/filterSlice';
+import { filtration } from 'components/redux/Redux/Contacts/filterSlice';
 import { SearchOutlined } from '@ant-design/icons';
 
 export const Filter = () => {

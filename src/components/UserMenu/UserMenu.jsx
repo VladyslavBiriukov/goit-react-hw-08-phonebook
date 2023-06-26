@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { Avatar, Button } from 'antd';
 import { Wrap } from './Usermenu.styled';
-import { logOut } from 'Redux/Authorization/operations';
+import { logOut } from 'components/redux/Redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 import { LogoutOutlined } from '@ant-design/icons'; 
 

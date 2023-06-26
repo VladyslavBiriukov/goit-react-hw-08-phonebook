@@ -20,7 +20,7 @@ import {
   deleteContact,
   redactContatc,
   fetchContacts,
-} from 'Redux/Contacts/operations'; 
+} from 'components/redux/Redux/Contacts/operations'; 
 
 import { useEffect, useState } from 'react';
 import { Filter } from 'components/Filter/Filter';
