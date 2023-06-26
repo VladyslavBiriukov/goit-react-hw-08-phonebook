@@ -26,7 +26,7 @@ const handleRejected = (state, { payload }) => {
   );
 };
 
-const contactSlise = createSlice({
+const contactSlice = createSlice({
   name: 'contacts',
   initialState: {
     items: [],
@@ -82,6 +82,6 @@ const contactSlise = createSlice({
   },
 });
 
-export const contactsReduser = contactSlise.reducer;
+export const contactsReducer = contactSlice.reducer;
 
 

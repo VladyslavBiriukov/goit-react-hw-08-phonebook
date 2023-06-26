@@ -19,7 +19,7 @@ const handleRejected = (state, { payload }) => {
   );
 };
 
-const authSlise = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState: {
     user: { email: null, password: null },
@@ -74,4 +74,4 @@ const authSlise = createSlice({
   },
 });
 
-export const authReduser = authSlise.reducer;
+export const authReducer = authSlice.reducer;
