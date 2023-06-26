@@ -29,7 +29,7 @@ export const AppBar = () => {
                         {isLoaggedIn && (
                             <Link to="/contacts">
                                 <ContactIcon />
-                                Contactss
+                                Contacts
                             </Link>
                         )}
                     </div>
