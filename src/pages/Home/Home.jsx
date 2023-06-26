@@ -38,7 +38,7 @@ export default function Home() {
         </UnderTitle>
       ) : (
         <UnderTitle>
-          Сlick onn
+          Сlick on
           <HomeLink to="/contacts">Contacts</HomeLink>
           and manage your contacts
         </UnderTitle>
